@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>पवार ऑनलाइन सेवा केंद्र - चिंचघाट</title>
+  <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Hind', 'Noto Sans Devanagari', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    /* Header Styles */
+    header {
+      background: linear-gradient(90deg, #0c4b78 0%, #1a6fb0 100%);
+      color: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      margin-bottom: 30px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon points="0,0 100,0 100,100" fill="rgba(255,255,255,0.1)"/></svg>');
+      background-size: cover;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    
+    .logo-icon {
+      background: white;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0c4b78;
+      font-size: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 5px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .tagline {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-bottom: 20px;
+    }
+    
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.2rem;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 10px 20px;
+      border-radius: 50px;
+      backdrop-filter: blur(5px);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+      color: white;
+    }
+    
+    .contact-item:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-3px);
+    }
+    
+    /* Main Content */
+    .services-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    
+    .service-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .card-header {
+      padding: 20px;
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .bank-header {
+      background: linear-gradient(90deg, #2a5c8d 0%, #4a8bc9 100%);
+    }
+    
+    .setu-header {
+      background: linear-gradient(90deg, #1e7d5f 0%, #2daa82 100%);
+    }
+    
+    .card-header i {
+      font-size: 2rem;
+    }
+    
+    .card-body {
+      padding: 25px;
+    }
+    
+    .service-list {
+      list-style-type: none;
+      padding: 0;
+    }
+    
+    .service-list li {
+      padding: 12px 0;
+      border-bottom: 1px dashed #eee;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    
+    .service-list li:last-child {
+      border-bottom: none;
+    }
+    
+    .service-list li i {
+      color: #1a6fb0;
+      margin-top: 4px;
+      min-width: 20px;
+    }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      margin-top: 20px;
+    }
+    
+    .hours {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+    
+    .hours div {
+      background: #f8f9fa;
+      padding: 15px 25px;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    }
+    
+    .copyright {
+      margin-top: 20px;
+      color: #666;
+      font-size: 0.9rem;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .services-container {
+        grid-template-columns: 1fr;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .contact-info {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    
+    @media (max-width: 500px) {
+      .service-card {
+        min-width: 300px;
+      }
+      
+      .logo {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <div class="logo-icon">
+          <i class="fas fa-handshake"></i>
+        </div>
+        <div>
+          <h1>पवार ऑनलाइन सेवा केंद्र - चिंचघाट</h1>
+          <div class="tagline">सर्व सेवा एकाच ठिकाणी!</div>
+        </div>
+      </div>
+      
+      <div class="contact-info">
+        <a href="https://wa.me/918788801761" class="contact-item" target="_blank">
+          <i class="fas fa-phone-alt"></i>
+          <span>8788801761</span>
+        </a>
+        <a href="https://wa.me/919552928821" class="contact-item" target="_blank">
+          <i class="fas fa-mobile-alt"></i>
+          <span>9552928821</span>
+        </a>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>चिंचघाट, यवतमाळ</span>
+        </div>
+      </div>
+    </header>
+    
+    <main>
+      <div class="services-container">
+        <!-- Bank of Baroda Services -->
+        <div class="service-card">
+          <div class="card-header bank-header">
+            <i class="fas fa-university"></i>
+            <h2>बैंक ऑफ बड़ौदा सेवा</h2>
+          </div>
+          <div class="card-body">
+            <ul class="service-list">
+              <li><i class="fas fa-check-circle"></i> E-kyc अकाउंट काढने</li>
+              <li><i class="fas fa-check-circle"></i> कैश विड्रावल/ डिपॉजिट</li>
+              <li><i class="fas fa-check-circle"></i> अटल पेंशन योजना (APY)</li>
+              <li><i class="fas fa-check-circle"></i> प्रधानमंत्री सुरक्षाबीमा योजना (PMSBY)</li>
+              <li><i class="fas fa-check-circle"></i> सर्व बैंक कैश विड्रावल</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Setu Services -->
+        <div class="service-card">
+          <div class="card-header setu-header">
+            <i class="fas fa-bridge"></i>
+            <h2>सेतू सेवा</h2>
+          </div>
+          <div class="card-body">
+            <ul class="service-list">
+              <li><i class="fas fa-check-circle"></i> पॅन कार्ड अर्ज</li>
+              <li><i class="fas fa-check-circle"></i> झेरॉक्स / कलर प्रिंट</li>
+              <li><i class="fas fa-check-circle"></i> लॅमीनेशन</li>
+              <li><i class="fas fa-check-circle"></i> पासपोर्ट फोटो</li>
+              <li><i class="fas fa-check-circle"></i> डिजिटल ७/१२ आणि ८-अ</li>
+              <li><i class="fas fa-check-circle"></i> भूमी - नकाशा</li>
+              <li><i class="fas fa-check-circle"></i> ई-फेरफार</li>
+              <li><i class="fas fa-check-circle"></i> फार्मर ID</li>
+              <li><i class="fas fa-check-circle"></i> PM किसान रजिस्ट्रेशन / Kyc</li>
+              <li><i class="fas fa-check-circle"></i> पीक विमा</li>
+              <li><i class="fas fa-check-circle"></i> ई-श्रम कार्ड</li>
+              <li><i class="fas fa-check-circle"></i> मतदान कार्ड</li>
+              <li><i class="fas fa-check-circle"></i> maha DBT योजना</li>
+              <li><i class="fas fa-check-circle"></i> आयुष्मान भारत कार्ड</li>
+              <li><i class="fas fa-check-circle"></i> आधार कार्ड प्रिंट</li>
+              <li><i class="fas fa-check-circle"></i> मोबाईल / DTH रिचार्ज</li>
+              <li><i class="fas fa-check-circle"></i> इलेक्ट्रिक बील</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+    
+    <footer>
+      <h3>कामाचे तास</h3>
+      <div class="hours">
+        <div>
+          <h4>सोमवार ते शनिवार</h4>
+          <p>सकाळी १०:०० ते संध्याकाळी ७:००</p>
+        </div>
+        <div>
+          <h4>रविवार</h4>
+          <p>सकाळी १०:०० ते दुपारी २:००</p>
+        </div>
+      </div>
+      <div class="copyright">
+        © 2025 पवार ऑनलाइन सेवा केंद्र, चिंचघाट | सर्व हक्क राखीव
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Fallback for WhatsApp links if needed
+    document.addEventListener('DOMContentLoaded', function() {
+      const whatsappLinks = document.querySelectorAll('.contact-item[href^="https://wa.me/"]');
+      
+      whatsappLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          // You can add any additional tracking or analytics here
+          console.log('WhatsApp link clicked:', this.href);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
